@@ -27,6 +27,7 @@ class Crawler {
     this.crawl()
   }
 
+// crawl task should be an async function
   crawlTask (url) {
     return new Promise((resolve, reject) => {
       // do stuff
@@ -37,12 +38,17 @@ class Crawler {
   recurse (url) {
     if (!url) return;
     let next = this.crawlTask(url);
-    return next.then((nextUrl) => recurse(nextUrl));
+    return next.then(nextUrl => recurse(nextUrl));
   }
 
   crawl () {
-    recurse(this.queue.shift());
-    // block until crawl complete
+    let startUrls = [];
+    for (let i = 0; i < this.queue.length; i++) {
+      if (i < (this.maxWorkers - 1)) {
+        startUrls.push(recurse(this.queue[i]));
+      }
+    }
+    Promise.all(startUrls);
   }
 
   addUrl (url) {
