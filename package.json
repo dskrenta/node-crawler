@@ -1,0 +1,23 @@
+{
+  "name": "node-crawler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dskrenta/node-crawler.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dskrenta/node-crawler/issues"
+  },
+  "homepage": "https://github.com/dskrenta/node-crawler#readme",
+  "dependencies": {
+    "url-parse": "^1.1.4",
+    "valid-url": "^1.0.9"
+  }
+}
